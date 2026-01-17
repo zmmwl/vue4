@@ -1,0 +1,191 @@
+/* 数据源节点样式 - 圆形 */
+.data-source-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.data-source-node:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* 任务节点样式 - 圆角长方形 */
+.task-node {
+  padding: var(--spacing-md);
+  transition: all 0.2s ease;
+  background-color: var(--color-surface);
+}
+
+.task-node:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.node-type {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: rgba(59, 130, 246, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.node-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.node-description {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* 端口容器样式 */
+.input-ports,
+.output-ports {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  position: relative;
+}
+
+.input-ports {
+  padding-bottom: var(--spacing-sm);
+}
+
+.output-ports {
+  padding-top: var(--spacing-sm);
+}
+
+/* 自定义端口样式 - n8n 风格 */
+/* 注意：具体样式已在 CustomHandle.vue 组件中定义 */
+
+/* 节点面板样式 */
+.node-palette {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 240px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+
+.palette-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.palette-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.palette-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.palette-item:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.palette-item:active {
+  cursor: grabbing;
+}
+
+.palette-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.palette-item-label {
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+.palette-item-description {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+/* 控制面板样式 */
+.flow-controls {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.control-button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.control-button svg {
+  width: 18px;
+  height: 18px;
+}
