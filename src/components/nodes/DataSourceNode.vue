@@ -29,20 +29,22 @@
     </div>
 
     <!-- 左侧输入点 - n8n 风格圆形锚点 -->
-    <Handle
-      id="input"
-      type="target"
-      :position="Position.Left"
-      class="custom-handle"
-    />
+    <div class="custom-handle-wrapper handle-circle" style="left: -6px;">
+      <Handle
+        id="input"
+        type="target"
+        :position="Position.Left"
+      />
+    </div>
 
     <!-- 右侧输出点 - n8n 风格圆形锚点 -->
-    <Handle
-      id="output"
-      type="source"
-      :position="Position.Right"
-      class="custom-handle"
-    />
+    <div class="custom-handle-wrapper handle-circle" style="right: -6px;">
+      <Handle
+        id="output"
+        type="source"
+        :position="Position.Right"
+      />
+    </div>
   </div>
 </template>
 

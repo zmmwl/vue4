@@ -315,7 +315,14 @@ body {
 }
 
 /* CustomHandle 组件样式 */
-.custom-handle {
+.custom-handle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.custom-handle-wrapper .vue-flow__handle {
   width: 12px !important;
   height: 12px !important;
   border: 2px solid var(--color-foreground--shade-1) !important;
@@ -325,16 +332,58 @@ body {
   cursor: crosshair !important;
 }
 
-.custom-handle:hover {
+.custom-handle-wrapper:hover .vue-flow__handle {
   border-color: var(--color-primary) !important;
   background-color: var(--color-primary--tint-3) !important;
   transform: scale(1.2) !important;
   box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent) !important;
 }
 
-.custom-handle.connected {
+.custom-handle-wrapper.connecting .vue-flow__handle {
   background-color: var(--color-primary) !important;
   border-color: var(--color-primary--shade-1) !important;
+}
+
+/* 圆形连接点 - 确保圆形显示 */
+.handle-circle .vue-flow__handle {
+  border-radius: 50% !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* 菱形连接点 */
+.handle-diamond .vue-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: var(--color-info) !important;
+  border: 2px solid var(--color-info--shade-1) !important;
+  border-radius: 2px !important;
+}
+
+.handle-diamond:hover .vue-flow__handle {
+  background-color: var(--color-info--tint-1) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Handle位置调整 */
+.custom-handle-wrapper.handle-Left {
+  position: absolute;
+  left: -6px;
+}
+
+.custom-handle-wrapper.handle-Right {
+  position: absolute;
+  right: -6px;
+}
+
+.custom-handle-wrapper.handle-Top {
+  position: absolute;
+  top: -6px;
+}
+
+.custom-handle-wrapper.handle-Bottom {
+  position: absolute;
+  bottom: -6px;
 }
 
 /* ============================================

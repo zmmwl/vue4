@@ -47,27 +47,33 @@
 
     <!-- 左侧输入点 - n8n 风格圆形锚点 -->
     <div class="input-ports-left">
-      <Handle
+      <div
         v-for="port in inputPorts"
         :key="port.id"
-        :id="port.id"
-        type="target"
-        :position="Position.Left"
-        class="custom-handle"
+        class="custom-handle-wrapper handle-circle"
         :style="{ top: `${getPortPosition(inputPorts.length, port.index || 0)}px` }"
-      />
+      >
+        <Handle
+          :id="port.id"
+          type="target"
+          :position="Position.Left"
+        />
+      </div>
     </div>
 
     <!-- 右侧输出点 - n8n 风格圆形锚点 -->
     <div class="output-ports-right">
-      <Handle
+      <div
         v-for="port in outputPorts"
         :key="port.id"
-        :id="port.id"
-        type="source"
-        :position="Position.Right"
-        class="custom-handle"
-      />
+        class="custom-handle-wrapper handle-circle"
+      >
+        <Handle
+          :id="port.id"
+          type="source"
+          :position="Position.Right"
+        />
+      </div>
     </div>
   </div>
 </template>
