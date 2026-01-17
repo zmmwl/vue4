@@ -32,22 +32,25 @@ withDefaults(defineProps<Props>(), {
 <style scoped>
 .handle-label {
   position: absolute;
-  font-size: 10px;
-  color: var(--color-text-secondary);
+  font-size: var(--font-size--3xs);
+  color: var(--color-text--tint-1);
   white-space: nowrap;
 }
 
-/* n8n 风格连接点样式 */
+/* ============================================
+   n8n 风格连接点样式
+   ============================================ */
+
 .custom-handle {
-  width: 10px;
-  height: 10px;
-  background-color: #808080;
-  border: 2px solid #ffffff;
-  transition: all 0.15s ease;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-foreground--shade-1);
+  background-color: var(--node--color--background);
+  transition: var(--transition-fast);
   cursor: crosshair;
 }
 
-/* 圆形连接点 - 用于左右输入输出 */
+/* 圆形连接点 - 用于左右输入输出 (n8n 默认样式) */
 .handle-circle {
   border-radius: 50%;
 }
@@ -56,45 +59,47 @@ withDefaults(defineProps<Props>(), {
 .handle-diamond {
   width: 10px;
   height: 10px;
-  background-color: #4169E1;
+  background-color: var(--color-info);
   transform: rotate(45deg);
-  border: 2px solid #ffffff;
-}
-
-.handle-diamond:hover {
-  background-color: #1E90FF;
-  transform: rotate(45deg) scale(1.1);
+  border: 2px solid var(--color-info--shade-1);
 }
 
 /* 悬停效果 */
 .custom-handle:hover {
-  background-color: #A9A9A9;
-  transform: scale(1.1);
-  box-shadow: 0 0 0 1px #CCCCCC, 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary--tint-3);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent);
 }
 
-/* 左侧连接点 - 嵌入左边框 */
-.handle-Left {
-  left: -5px !important;
-}
-
-/* 右侧连接点 - 嵌入右边框 */
-.handle-Right {
-  right: -5px !important;
-}
-
-/* 顶部连接点 - 嵌入上边框 */
-.handle-Top {
-  top: -5px !important;
-}
-
-/* 底部连接点 - 嵌入下边框 */
-.handle-Bottom {
-  bottom: -5px !important;
+.handle-diamond:hover {
+  background-color: var(--color-info--tint-1);
+  transform: rotate(45deg) scale(1.1);
 }
 
 /* 连接状态 */
 .custom-handle.connecting {
   background-color: var(--color-primary);
+  border-color: var(--color-primary--shade-1);
+}
+
+/* 左侧连接点 - 嵌入左边框 */
+.handle-Left {
+  left: -6px !important;
+}
+
+/* 右侧连接点 - 嵌入右边框 */
+.handle-Right {
+  right: -6px !important;
+}
+
+/* 顶部连接点 - 嵌入上边框 */
+.handle-Top {
+  top: -6px !important;
+}
+
+/* 底部连接点 - 嵌入下边框 */
+.handle-Bottom {
+  bottom: -6px !important;
 }
 </style>

@@ -13,10 +13,15 @@
       :min-zoom="0.2"
       :max-zoom="2"
       :fit-view-on-init="true"
+      :fit-view-options="{ padding: 0.2 }"
       @connect="onConnect"
     >
-      <!-- 背景网格 -->
-      <Background pattern="dots" :gap="20" color="#e2e8f0" />
+      <!-- 背景 - n8n 风格点状网格 -->
+      <Background
+        pattern="dots"
+        :gap="20"
+        :color="canvasDotColor"
+      />
 
       <!-- 控制面板 -->
       <FlowControls
@@ -31,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, markRaw } from 'vue';
+import { ref, computed } from 'vue';
 import { VueFlow, useVueFlow } from '@vue-flow/core';
 import { Background } from '@vue-flow/background';
 import type { Node, Edge, Connection } from '@vue-flow/core';
@@ -47,6 +52,10 @@ const { fitView, zoomIn, zoomOut } = useVueFlow();
 const nodes = ref<Node[]>([]);
 const edges = ref<Edge[]>([]);
 
+// n8n 风格的网格点颜色
+const canvasDotColor = computed(() => getComputedStyle(document.documentElement)
+  .getPropertyValue('--canvas--dot--color').trim() || '#d9d9d9');
+
 let nodeIdCounter = 1;
 
 function onConnect(connection: Connection) {
@@ -54,6 +63,14 @@ function onConnect(connection: Connection) {
     ...connection,
     type: 'custom',
     id: `e${connection.source}-${connection.target}`,
+    // 确保箭头标记正确设置
+    markerEnd: {
+      type: 'arrowclosed',
+      color: getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-foreground--shade-2').trim() || '#d9d9d9',
+      width: 12,
+      height: 12,
+    },
   });
 }
 
@@ -134,6 +151,6 @@ function clearCanvas() {
 }
 
 .vue-flow {
-  background-color: #f8f9fa;
+  background-color: var(--canvas--color--background);
 }
 </style>

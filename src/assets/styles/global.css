@@ -207,7 +207,11 @@ body {
   cursor: move;
 }
 
-/* n8n 风格连接线样式 */
+/* ============================================
+   n8n 风格连接线样式
+   ============================================ */
+
+/* 连接线路径 */
 .vue-flow__edge-path {
   stroke: var(--color-foreground--shade-2);
   stroke-width: 2px;
@@ -221,7 +225,7 @@ body {
   stroke-width: 3px;
 }
 
-/* 连接线箭头样式 */
+/* 连接线箭头 (marker) */
 .vue-flow__edge-pathmarker {
   fill: var(--color-foreground--shade-2);
   transition: var(--transition-base);
@@ -230,6 +234,76 @@ body {
 .vue-flow__edge.selected .vue-flow__edge-pathmarker,
 .vue-flow__edge:hover .vue-flow__edge-pathmarker {
   fill: var(--color-primary);
+}
+
+/* 确保箭头方向正确 - 从源节点指向目标节点 */
+.vue-flow__edge path {
+  pointer-events: all;
+}
+
+/* ============================================
+   n8n 风格连接点 (Handle) 样式
+   ============================================ */
+
+/* Vue Flow 默认 Handle 样式覆盖 */
+.vue-flow__handle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-foreground--shade-1);
+  background-color: var(--node--color--background);
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  cursor: crosshair;
+}
+
+.vue-flow__handle:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary--tint-3);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent);
+}
+
+.vue-flow__handle.connecting {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary--shade-1);
+}
+
+/* 源连接点 (右侧/底部输出) */
+.vue-flow__handle.source {
+  background-color: var(--color-background);
+}
+
+.vue-flow__handle.source:hover {
+  background-color: var(--color-primary--tint-3);
+}
+
+/* 目标连接点 (左侧/顶部输入) */
+.vue-flow__handle.target {
+  background-color: var(--color-background);
+}
+
+.vue-flow__handle.target:hover {
+  background-color: var(--color-success--tint-3);
+  border-color: var(--color-success);
+}
+
+/* 连接线创建过程中的样式 */
+.vue-flow__handle.connectable {
+  cursor: crosshair;
+}
+
+.vue-flow__handle.connecting {
+  cursor: crosshair;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 150, 90, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 150, 90, 0);
+  }
 }
 
 /* ============================================
