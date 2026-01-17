@@ -350,23 +350,5 @@ const nodeStyle = computed(() => ({
   right: -6px;
 }
 
-/* 自定义Handle样式 */
-:deep(.custom-handle) {
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--color-foreground--shade-1);
-  background-color: var(--node--color--background);
-  transition: var(--transition-fast);
-}
-
-:deep(.custom-handle:hover) {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary--tint-3);
-  transform: scale(1.2);
-}
-
-:deep(.custom-handle.connected) {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary--shade-1);
-}
+/* 自定义Handle样式 - 现在在全局样式中定义 */
 </style>

@@ -245,46 +245,54 @@ body {
    n8n 风格连接点 (Handle) 样式
    ============================================ */
 
-/* Vue Flow 默认 Handle 样式覆盖 */
+/* Vue Flow 默认 Handle 样式覆盖 - 确保圆形显示 */
 .vue-flow__handle {
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--color-foreground--shade-1);
-  background-color: var(--node--color--background);
-  border-radius: 50%;
-  transition: var(--transition-fast);
-  cursor: crosshair;
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid var(--color-foreground--shade-1) !important;
+  background-color: var(--node--color--background) !important;
+  border-radius: 50% !important;
+  transition: var(--transition-fast) !important;
+  cursor: crosshair !important;
 }
 
+/* Handle 内部元素样式 */
+.vue-flow__handle::before,
+.vue-flow__handle::after {
+  display: none !important;
+}
+
+/* 悬停效果 */
 .vue-flow__handle:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary--tint-3);
-  transform: scale(1.2);
-  box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent);
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary--tint-3) !important;
+  transform: scale(1.2) !important;
+  box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent) !important;
 }
 
+/* 连接状态 */
 .vue-flow__handle.connecting {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary--shade-1);
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary--shade-1) !important;
 }
 
 /* 源连接点 (右侧/底部输出) */
 .vue-flow__handle.source {
-  background-color: var(--color-background);
+  background-color: var(--color-background) !important;
 }
 
 .vue-flow__handle.source:hover {
-  background-color: var(--color-primary--tint-3);
+  background-color: var(--color-primary--tint-3) !important;
 }
 
 /* 目标连接点 (左侧/顶部输入) */
 .vue-flow__handle.target {
-  background-color: var(--color-background);
+  background-color: var(--color-background) !important;
 }
 
 .vue-flow__handle.target:hover {
-  background-color: var(--color-success--tint-3);
-  border-color: var(--color-success);
+  background-color: var(--color-success--tint-3) !important;
+  border-color: var(--color-success) !important;
 }
 
 /* 连接线创建过程中的样式 */
@@ -304,6 +312,29 @@ body {
   50% {
     box-shadow: 0 0 0 6px rgba(255, 150, 90, 0);
   }
+}
+
+/* CustomHandle 组件样式 */
+.custom-handle {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid var(--color-foreground--shade-1) !important;
+  background-color: var(--node--color--background) !important;
+  border-radius: 50% !important;
+  transition: var(--transition-fast) !important;
+  cursor: crosshair !important;
+}
+
+.custom-handle:hover {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary--tint-3) !important;
+  transform: scale(1.2) !important;
+  box-shadow: 0 0 0 3px var(--canvas--color--selected-transparent) !important;
+}
+
+.custom-handle.connected {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary--shade-1) !important;
 }
 
 /* ============================================
