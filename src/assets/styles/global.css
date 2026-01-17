@@ -1,3 +1,7 @@
+/* ============================================
+   n8n 风格全局样式
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +9,13 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  line-height: 1.5;
+  font-family: var(--font-family);
+  background-color: var(--canvas--color--background);
+  color: var(--color-text);
+  font-size: var(--font-size--sm);
+  line-height: var(--line-height--md);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
 
@@ -22,9 +29,178 @@ body {
   height: 100%;
 }
 
-/* Vue Flow 基础样式覆盖 */
+/* ============================================
+   n8n 风格按钮系统
+   ============================================ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing--2xs);
+  font-family: var(--font-family);
+  font-size: var(--font-size--sm);
+  font-weight: var(--font-weight--medium);
+  line-height: var(--line-height--xs);
+  padding: var(--spacing--2xs) var(--spacing--sm);
+  border-radius: var(--radius);
+  border: var(--border);
+  cursor: pointer;
+  transition: var(--transition-base);
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Primary 按钮 */
+.button.primary {
+  background-color: var(--button--color--background--primary, var(--color-primary));
+  border-color: var(--button--border-color--primary, var(--color-primary));
+  color: var(--button--color--text--primary, var(--color-neutral-white));
+}
+
+.button.primary:hover,
+.button.primary:active,
+.button.primary:focus {
+  background-color: var(--button--color--background--primary--hover-active-focus, var(--color-primary--shade-1));
+  border-color: var(--button--border-color--primary--hover-active, var(--color-primary--shade-1));
+}
+
+.button.primary:disabled {
+  background-color: var(--button--color--background--primary--disabled, var(--color-primary--tint-1));
+  border-color: var(--button--border-color--primary--disabled, var(--color-primary--tint-1));
+  color: var(--button--color--text--primary--disabled, var(--color-white-alpha-800));
+  cursor: not-allowed;
+}
+
+/* Secondary 按钮 */
+.button.secondary {
+  background-color: var(--button--color--background--secondary, var(--color-neutral-white));
+  border-color: var(--button--border-color--secondary, var(--color-neutral-300));
+  color: var(--button--color--text--secondary, var(--color-neutral-700));
+}
+
+.button.secondary:hover {
+  background-color: var(--button--color--background--secondary--hover, var(--color-primary--tint-3));
+}
+
+.button.secondary:active,
+.button.secondary:focus {
+  background-color: var(--button--color--background--secondary--active-focus, var(--color-primary--tint-2));
+}
+
+.button.secondary:hover,
+.button.secondary:active,
+.button.secondary:focus {
+  border-color: var(--button--border-color--secondary--hover-active-focus, var(--color-primary));
+  color: var(--button--color--text--secondary--hover-active-focus, var(--color-primary));
+}
+
+.button.secondary:disabled {
+  color: var(--button--color--text--secondary--disabled, var(--color-neutral-250));
+  border-color: var(--button--border-color--secondary--disabled, var(--color-neutral-250));
+  cursor: not-allowed;
+}
+
+/* Highlight 按钮 */
+.button.highlight {
+  background-color: var(--button--color--background--highlight, transparent);
+  border-color: var(--button--border-color--highlight, transparent);
+  color: var(--button--color--text--highlight, var(--color-neutral-700));
+}
+
+.button.highlight:hover {
+  background-color: var(--button--color--background--highlight--hover, var(--color-neutral-125));
+}
+
+.button.highlight:active,
+.button.highlight:focus {
+  background-color: var(--button--color--background--highlight--active-focus, var(--color-neutral-125));
+}
+
+.button.highlight:hover,
+.button.highlight:active,
+.button.highlight:focus {
+  border-color: var(--button--border-color--highlight--hover-active-focus, var(--color-neutral-125));
+  color: var(--button--color--text--highlight--hover-active-focus, var(--color-primary));
+}
+
+.button.highlight:disabled {
+  color: var(--button--color--text--highlight--disabled, var(--color-neutral-200));
+  cursor: not-allowed;
+}
+
+/* Success 按钮 */
+.button.success {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: var(--button--color--text--success, var(--color-neutral-white));
+}
+
+.button.success:hover {
+  background-color: var(--color-success--shade-1);
+  border-color: var(--color-success--shade-1);
+}
+
+/* Warning 按钮 */
+.button.warning {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+  color: var(--button--color--text--warning, var(--color-neutral-white));
+}
+
+.button.warning:hover {
+  background-color: var(--color-warning--shade-1);
+  border-color: var(--color-warning--shade-1);
+}
+
+/* Danger 按钮 */
+.button.danger {
+  background-color: var(--button--color--background--danger, var(--color-danger));
+  border-color: var(--button--border-color--danger, var(--color-danger));
+  color: var(--button--color--text--danger, var(--color-neutral-white));
+}
+
+.button.danger:hover {
+  background-color: var(--color-danger--shade-1);
+  border-color: var(--color-danger--shade-1);
+}
+
+.button.danger:focus-visible {
+  outline-color: var(--button--outline-color--danger--focus, var(--color-danger--tint-3));
+}
+
+.button.danger:disabled {
+  background-color: var(--button--color--background--danger--disabled, var(--color-danger--tint-3));
+  border-color: var(--button--border-color--danger--disabled, var(--color-danger--tint-3));
+  color: var(--button--color--text--danger--disabled, var(--color-white-alpha-800));
+  cursor: not-allowed;
+}
+
+/* Text 按钮 */
+.button.text {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text);
+  padding: var(--spacing--2xs);
+}
+
+.button.text:hover {
+  background-color: var(--color-neutral-125);
+}
+
+/* ============================================
+   Vue Flow 基础样式覆盖
+   ============================================ */
+
 .vue-flow {
-  background-color: var(--color-background);
+  background-color: var(--canvas--color--background);
 }
 
 .vue-flow__node {
@@ -33,22 +209,79 @@ body {
 
 /* n8n 风格连接线样式 */
 .vue-flow__edge-path {
-  stroke: #808080;
+  stroke: var(--color-foreground--shade-2);
   stroke-width: 2px;
   fill: none;
+  transition: var(--transition-base);
 }
 
 .vue-flow__edge.selected .vue-flow__edge-path,
 .vue-flow__edge:hover .vue-flow__edge-path {
   stroke: var(--color-primary);
+  stroke-width: 3px;
 }
 
 /* 连接线箭头样式 */
 .vue-flow__edge-pathmarker {
-  fill: #808080;
+  fill: var(--color-foreground--shade-2);
+  transition: var(--transition-base);
 }
 
 .vue-flow__edge.selected .vue-flow__edge-pathmarker,
 .vue-flow__edge:hover .vue-flow__edge-pathmarker {
   fill: var(--color-primary);
+}
+
+/* ============================================
+   n8n 风格网格背景
+   ============================================ */
+
+.vue-flow__background {
+  background-color: var(--canvas--color--background);
+}
+
+/* 点状网格 */
+.vue-flow__background.pattern-dots {
+  background-image: radial-gradient(var(--canvas--dot--color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 线状网格 */
+.vue-flow__background.pattern-lines {
+  background-image: linear-gradient(var(--canvas--dot--color) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--canvas--dot--color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ============================================
+   选中状态样式
+   ============================================ */
+
+.vue-flow__node.selected,
+.vue-flow__node:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   滚动条样式
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background--light-1);
+  border-radius: var(--radius--sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-foreground--shade-1);
+  border-radius: var(--radius--sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground--shade-2);
 }

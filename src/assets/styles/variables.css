@@ -1,41 +1,226 @@
 :root {
-  /* 基础配色方案 */
-  --color-background: #f8fafc;
-  --color-surface: #ffffff;
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
+  /* ============================================
+     n8n 风格颜色系统
+     ============================================ */
 
-  /* 主色调 */
-  --color-primary: #3b82f6;
-  --color-primary-light: #60a5fa;
-  --color-primary-dark: #2563eb;
+  /* Primary 颜色 (n8n 使用橙色作为主色) */
+  --color-primary: #ff965a;
+  --color-primary--shade-1: #ff7a42;
+  --color-primary--tint-1: #ffb380;
+  --color-primary--tint-2: #ffd0a6;
+  --color-primary--tint-3: #ffe8d3;
 
-  /* 辅助色 */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #6366f1;
+  /* Secondary 颜色 (紫色) */
+  --color-secondary: #7c4dff;
+  --color-secondary--shade-1: #651fff;
+  --color-secondary--tint-1: #b388ff;
+  --color-secondary--tint-2: #d1c4e9;
 
-  /* 文字颜色 */
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-tertiary: #94a3b8;
+  /* Success 颜色 (绿色) */
+  --color-success: #2da160;
+  --color-success--shade-1: #217a48;
+  --color-success--tint-1: #6bcf97;
+  --color-success--tint-2: #a3e0b9;
+  --color-success--tint-3: #d4f0e0;
+  --color-success--tint-4: #e8f7ef;
 
-  /* 阴影 */
+  /* Warning 颜色 (金色) */
+  --color-warning: #ffc107;
+  --color-warning--shade-1: #ffb300;
+  --color-warning--tint-1: #ffe08a;
+  --color-warning--tint-2: #fff8e1;
+
+  /* Danger 颜色 (红色) */
+  --color-danger: #f5222d;
+  --color-danger--shade-1: #d9363e;
+  --color-danger--tint-1: #ff7875;
+  --color-danger--tint-2: #ffadd2;
+  --color-danger--tint-3: #ffa39e;
+  --color-danger--tint-4: #fff1f0;
+
+  /* Info 颜色 (蓝色) */
+  --color-info: #1890ff;
+  --color-info--tint-1: #69c0ff;
+  --color-info--tint-2: #bae7ff;
+
+  /* Neutral 颜色 (灰色系) */
+  --color-neutral-white: #ffffff;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-125: #f0f0f0;
+  --color-neutral-150: #e8e8e8;
+  --color-neutral-200: #d9d9d9;
+  --color-neutral-250: #bfbfbf;
+  --color-neutral-300: #8c8c8c;
+  --color-neutral-400: #595959;
+  --color-neutral-500: #434343;
+  --color-neutral-600: #262626;
+  --color-neutral-700: #1f1f1f;
+  --color-neutral-800: #141414;
+  --color-neutral-850: #0f0f0f;
+  --color-neutral-900: #000000;
+
+  /* 透明度变体 */
+  --color-white-alpha-100: rgba(255, 255, 255, 0.1);
+  --color-white-alpha-200: rgba(255, 255, 255, 0.15);
+  --color-white-alpha-300: rgba(255, 255, 255, 0.2);
+  --color-white-alpha-400: rgba(255, 255, 255, 0.25);
+  --color-white-alpha-500: rgba(255, 255, 255, 0.3);
+  --color-white-alpha-600: rgba(255, 255, 255, 0.4);
+  --color-white-alpha-700: rgba(255, 255, 255, 0.5);
+  --color-white-alpha-800: rgba(255, 255, 255, 0.7);
+  --color-white-alpha-900: rgba(255, 255, 255, 0.9);
+
+  --color-black-alpha-100: rgba(0, 0, 0, 0.05);
+  --color-black-alpha-200: rgba(0, 0, 0, 0.1);
+  --color-black-alpha-300: rgba(0, 0, 0, 0.2);
+  --color-black-alpha-400: rgba(0, 0, 0, 0.3);
+  --color-black-alpha-500: rgba(0, 0, 0, 0.5);
+  --color-black-alpha-600: rgba(0, 0, 0, 0.8);
+  --color-black-alpha-700: rgba(0, 0, 0, 0.85);
+  --color-black-alpha-800: rgba(0, 0, 0, 0.9);
+  --color-black-alpha-900: rgba(0, 0, 0, 0.95);
+
+  /* ============================================
+     语义化颜色映射
+     ============================================ */
+
+  /* Background */
+  --color-background: var(--color-neutral-125);
+  --color-background--shade-2: var(--color-neutral-900);
+  --color-background--shade-1: var(--color-neutral-200);
+  --color-background--light-1: var(--color-neutral-100);
+  --color-background--light-2: var(--color-neutral-50);
+  --color-background--light-3: var(--color-neutral-white);
+
+  /* Surface */
+  --color-surface: var(--color-neutral-white);
+
+  /* Text */
+  --color-text--shade-1: var(--color-neutral-850);
+  --color-text: var(--color-neutral-600);
+  --color-text--tint-1: var(--color-neutral-400);
+  --color-text--tint-2: var(--color-neutral-200);
+  --color-text--tint-3: var(--color-neutral-white);
+  --color-text--danger: var(--color-danger);
+
+  /* Foreground (边框颜色) */
+  --color-foreground--shade-2: var(--color-neutral-500);
+  --color-foreground--shade-1: var(--color-neutral-250);
+  --color-foreground: var(--color-neutral-200);
+  --color-foreground--tint-1: var(--color-neutral-150);
+  --color-foreground--tint-2: var(--color-neutral-white);
+
+  /* 边框 */
+  --border-color: var(--color-foreground);
+  --border-color--light: var(--color-foreground--tint-1);
+  --border-style: solid;
+  --border-width: 1px;
+  --border: var(--border-width) var(--border-style) var(--border-color);
+
+  /* ============================================
+     n8n 风格阴影系统
+     ============================================ */
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  --shadow--dark: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.12);
+  --shadow--light: 0 2px 12px 0 rgba(0, 0, 0, 0.07);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --command-bar-shadow: 0 15px 45px 0 hsla(0, 0%, 0%, 0.13), 0 5px 10px 0 hsla(0, 0%, 0%, 0.08);
 
-  /* 圆角 */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* ============================================
+     n8n 风格圆角系统
+     ============================================ */
+  --radius: 4px;
+  --radius--sm: 2px;
+  --radius--lg: 8px;
+  --radius--xl: 12px;
+
+  /* 向后兼容 */
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius--lg);
+  --radius-lg: var(--radius--xl);
   --radius-xl: 16px;
 
-  /* 间距 */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
+  /* ============================================
+     n8n 风格间距系统
+     ============================================ */
+  --spacing--5xs: 0.125rem; /* 2px */
+  --spacing--4xs: 0.25rem;  /* 4px */
+  --spacing--3xs: 0.375rem; /* 6px */
+  --spacing--2xs: 0.5rem;   /* 8px */
+  --spacing--xs: 0.75rem;   /* 12px */
+  --spacing--sm: 1rem;      /* 16px */
+  --spacing--md: 1.25rem;   /* 20px */
+  --spacing--lg: 1.5rem;    /* 24px */
+  --spacing--xl: 2rem;      /* 32px */
+  --spacing--2xl: 3rem;     /* 48px */
+  --spacing--3xl: 4rem;     /* 64px */
+  --spacing--4xl: 8rem;     /* 128px */
+  --spacing--5xl: 16rem;    /* 256px */
+
+  /* 向后兼容 */
+  --spacing-xs: var(--spacing--2xs);
+  --spacing-sm: var(--spacing--xs);
+  --spacing-md: var(--spacing--sm);
+  --spacing-lg: var(--spacing--lg);
+  --spacing-xl: var(--spacing--xl);
+
+  /* ============================================
+     n8n 风格字体系统
+     ============================================ */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family--monospace: 'JetBrains Mono', 'Fira Code', Consolas, 'Monaco', 'Courier New', monospace;
+
+  /* Font Size */
+  --font-size--4xs: 0.5rem;   /* 8px */
+  --font-size--3xs: 0.625rem; /* 10px */
+  --font-size--2xs: 0.75rem;  /* 12px */
+  --font-size--xs: 0.8125rem; /* 13px */
+  --font-size--sm: 0.875rem;  /* 14px */
+  --font-size--md: 1rem;      /* 16px */
+  --font-size--lg: 1.125rem;  /* 18px */
+  --font-size--xl: 1.25rem;   /* 20px */
+  --font-size--2xl: 1.75rem;  /* 28px */
+
+  /* Font Weight */
+  --font-weight--regular: 400;
+  --font-weight--medium: 500;
+  --font-weight--bold: 600;
+
+  /* Line Height */
+  --line-height--xs: 1;
+  --line-height--sm: 1.25;
+  --line-height--md: 1.3;
+  --line-height--lg: 1.35;
+  --line-height--xl: 1.5;
+
+  /* ============================================
+     Canvas 特定样式
+     ============================================ */
+  --canvas--color--background: var(--color-neutral-125);
+  --canvas--dot--color: var(--color-neutral-500);
+  --canvas--read-only-line--color: var(--color-neutral-100);
+  --canvas--color--selected: var(--color-neutral-150);
+  --canvas--color--selected-transparent: hsla(220, 47%, 30%, 0.1);
+  --canvas--label--color: var(--color-neutral-600);
+  --canvas--label--color--background: oklch(from var(--canvas--color--background) l c h / 0.85);
+
+  /* ============================================
+     Node 特定样式
+     ============================================ */
+  --node--color--background: var(--color-background--light-3);
+  --node--color--background--executing: var(--color-primary--tint-3);
+  --node--border-color--pinned: var(--color-secondary);
+  --node--border-color--running: var(--color-primary);
+  --node--type-main--color: var(--color-neutral-500);
+
+  /* ============================================
+     动画
+     ============================================ */
+  --animation--duration: 0.3s;
+  --animation--duration--snappy: 0.2s;
+  --transition-base: all var(--animation--duration) cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all var(--animation--duration--snappy) cubic-bezier(0.4, 0, 0.2, 1);
 }
